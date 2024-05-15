@@ -1,12 +1,22 @@
-﻿<Window x:Class="MRP_Black_Jewlery.MainWindow"
+﻿<Window x:Class="BlackJewelryMRP.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MRP_Black_Jewlery"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Black Jewelry MRP - Login" Height="350" Width="400"
+        WindowStyle="None" ResizeMode="NoResize">
     <Grid>
+        <TextBlock Text="Black Jewelry MRP" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
 
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Username:" Margin="0,0,0,5"/>
+            <TextBox Name="usernameTextBox" Width="200" Height="30" Margin="0,0,0,20" KeyDown="TextBox_KeyDown"/>
+
+            <TextBlock Text="Password:" Margin="0,0,0,5"/>
+            <PasswordBox Name="passwordBox" Width="200" Height="30" Margin="0,0,0,20" KeyDown="PasswordBox_KeyDown"/>
+
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Login" Width="100" Height="30" Click="OnLoginClick" Margin="0,0,10,0"/>
+                <Button Content="Sair" Width="100" Height="30" Click="OnSairClick"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
