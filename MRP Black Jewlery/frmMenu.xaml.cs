@@ -57,12 +57,8 @@ namespace MRP_Black_Jewlery
         private void MenuItemConfiguracoes_Click(object sender, RoutedEventArgs e)
         {
             // Lógica para lidar com o clique no item "Configurações"
-            MessageBox.Show("Você clicou em Configurações!");
-        }
-        private void MenuItemSair_Click(object sender, RoutedEventArgs e)
-        {
-            // Lógica para sair do sistema
-            Application.Current.Shutdown();
+            frmConfiguracoes configuracoesWindow = new frmConfiguracoes();
+            configuracoesWindow.ShowDialog();
         }
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -75,6 +71,13 @@ namespace MRP_Black_Jewlery
             else
                 this.WindowState = WindowState.Maximized;
         }
+        private void MenuItemCadastroUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            // Abra a janela de cadastro de usuário
+            frmCadastroUsuario cadastroUsuarioWindow = new frmCadastroUsuario();
+            cadastroUsuarioWindow.Show();
+        }
+
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();

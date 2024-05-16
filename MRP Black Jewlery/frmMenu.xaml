@@ -24,7 +24,7 @@
                 <MenuItem Header="_Ordens de Produção" Click="MenuItemOrdensProducao_Click"/>
                 <MenuItem Header="_Relatórios" Click="MenuItemRelatorios_Click"/>
                 <MenuItem Header="_Configurações" Click="MenuItemConfiguracoes_Click"/>
-                <MenuItem Header="_Sair" Click="MenuItemSair_Click"/>
+                <MenuItem Header="_Cadastro de Usuário" Click="MenuItemCadastroUsuario_Click"/>
             </Menu>
 
             <!-- Botões de controle de janela -->
