@@ -1,4 +1,4 @@
-# Black Jewelery - Sistema de Planejamento de Recursos da Black Jewelery
+# Sistema de Planejamento de Recursos da Black Jewelery
 
 ## Visão Geral
 
