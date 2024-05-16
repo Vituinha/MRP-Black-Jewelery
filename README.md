@@ -1,10 +1,10 @@
-# BlackJewelry - Sistema de Planejamento de Recursos da BlackJewelry
+# Black Jewelery - Sistema de Planejamento de Recursos da Black Jewelery
 
 ## Visão Geral
 
-O BlackJewelry é um Sistema de Planejamento de Recursos (MRP) desenvolvido como parte de um projeto acadêmico na faculdade [Nome da Faculdade]. Este sistema foi projetado para otimizar e gerenciar os recursos da empresa BlackJewelry, especializada em joias.
+O Black Jewelery é um Sistema de Planejamento de Recursos (MRP) desenvolvido como parte de um projeto acadêmico na faculdade [Nome da Faculdade]. Este sistema foi projetado para otimizar e gerenciar os recursos da empresa Black Jewelery, especializada em joias.
 
-O BlackJewelry MRP permite a gestão eficiente de inventário, produção, pedidos e relatórios para ajudar a empresa a operar de maneira mais eficaz, reduzir custos e aumentar a produtividade.
+O Black Jewelery MRP permite a gestão eficiente de inventário, produção, pedidos e relatórios para ajudar a empresa a operar de maneira mais eficaz, reduzir custos e aumentar a produtividade.
 
 ## Funcionalidades Principais
 
@@ -12,7 +12,7 @@ O BlackJewelry MRP permite a gestão eficiente de inventário, produção, pedid
 - Controle de pedidos de clientes.
 - Planejamento e rastreamento de ordens de produção.
 - Geração de relatórios detalhados sobre o desempenho e estoque.
-- Configurações personalizadas para adaptar o sistema às necessidades específicas da BlackJewelry.
+- Configurações personalizadas para adaptar o sistema às necessidades específicas da Black Jewelery.
 
 ## Tecnologias Utilizadas
 
@@ -34,7 +34,7 @@ Este projeto é parte de um trabalho acadêmico e não está aberto para contrib
 
 ## Licença
 
-Este projeto é licenciado sob a [Licença MIT](https://opensource.org/licenses/MIT).
+Este projeto é FREE USE e OPEN CODE para estudos ou uso pessoal até o momento atual de criação deste documento.
 
 ## Contato
 
