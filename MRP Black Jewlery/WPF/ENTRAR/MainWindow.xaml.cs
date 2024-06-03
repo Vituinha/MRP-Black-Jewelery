@@ -1,4 +1,5 @@
 ﻿using MRP_Black_Jewlery;
+using MRP_Black_Jewlery.WPF.ENTRAR;
 using System.Diagnostics.Eventing.Reader;
 using System.Windows;
 using System.Windows.Input;
@@ -46,17 +47,14 @@ namespace BlackJewelryMRP
             string username = usernameTextBox.Text;
             string password = passwordBox.Password;
 
-            // Simulação de validação de login (substituir por lógica real de autenticação)
-            if (username == "admin" && password == "password")
+            loginBusiness efetuaLogin = new loginBusiness();
+            if (efetuaLogin.VerificaLogin(username, password))
             {
-                MessageBox.Show("Login successful!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                // Aqui você pode redirecionar para outra janela ou realizar outras ações de pós-login
+                MessageBox.Show("Login executado com sucesso!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 AbrirNovaPagina();
             }
             else
-            {
-                MessageBox.Show("Invalid username or password.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+                MessageBox.Show("Login ou senha inválido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void OnSairClick(object sender, RoutedEventArgs e)

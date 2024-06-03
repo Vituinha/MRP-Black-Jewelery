@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MRP_Black_Jewlery
+namespace MRP_Black_Jewlery.FUNCTIONS
 {
     internal class funcoesGlobais
     {
-        
+
 
     }
 }
