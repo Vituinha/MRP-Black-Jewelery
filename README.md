@@ -42,3 +42,4 @@ Para mais informações sobre este projeto, entre em contato com:
 
 - [Victor Hugo Soares Pereira](mailto:victorpereiraprog@gmail.com)
 - [Nicolly Beatriz Assunção Marques](mailto:beatriznicolly748@gmail.com)
+- [Bruno Francisco da Silva Costa](mailto:bruno_fsc@yahoo.com.br)
