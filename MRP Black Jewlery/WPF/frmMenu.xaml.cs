@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MRP_Black_Jewlery.WPF.CADASTROFUNCIONARIO;
+using MRP_Black_Jewlery.WPF.CADASTROMAQUINARIO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,10 +26,39 @@ namespace MRP_Black_Jewlery
             InitializeComponent();
         }
 
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                try
+                {
+                    this.DragMove();
+                }
+                catch(Exception ex)
+                {
+                    //IGNORED
+                }
+            }
+        }
+
+        private void NavBar_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void ContentGrid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
         private void MenuItemHome_Click(object sender, RoutedEventArgs e)
         {
-            // Lógica para lidar com o clique no item "Home"
-            MessageBox.Show("Você clicou em Home!");
         }
 
         private void MenuItemProdutos_Click(object sender, RoutedEventArgs e)
@@ -46,19 +77,6 @@ namespace MRP_Black_Jewlery
         {
             // Lógica para lidar com o clique no item "Ordens de Produção"
             MessageBox.Show("Você clicou em Ordens de Produção!");
-        }
-
-        private void MenuItemRelatorios_Click(object sender, RoutedEventArgs e)
-        {
-            // Lógica para lidar com o clique no item "Relatórios"
-            MessageBox.Show("Você clicou em Relatórios!");
-        }
-
-        private void MenuItemConfiguracoes_Click(object sender, RoutedEventArgs e)
-        {
-            // Lógica para lidar com o clique no item "Configurações"
-            frmConfiguracoes configuracoesWindow = new frmConfiguracoes();
-            configuracoesWindow.ShowDialog();
         }
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -81,6 +99,19 @@ namespace MRP_Black_Jewlery
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void MenuItemCadastroMaquinario_Click(object sender, RoutedEventArgs e)
+        {
+            // Abra a janela de cadastro de maquinario
+            frmCadastroMaquinario cadastroMaquinarioWindow = new frmCadastroMaquinario();
+            cadastroMaquinarioWindow.Show();
+        }
+
+        private void MenuItemCadastroFuncionario_Click(object sender, RoutedEventArgs e)
+        {
+            frmCadastroFuncionario cadastroFuncionarioWindow = new frmCadastroFuncionario();
+            cadastroFuncionarioWindow.Show();
         }
     }
 }

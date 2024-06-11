@@ -1,11 +1,11 @@
 ﻿<Window x:Class="MRP_Black_Jewlery.frmMenu"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="frmMenu" Height="450" Width="800"
-        WindowStyle="None" ShowInTaskbar="False">
+        Title="frmMenu" Height="450" Width="850"
+        WindowStyle="None" ShowInTaskbar="False" MouseDown="Window_MouseDown">
     <Grid>
         <!-- Barra de navegação (navbar) -->
-        <Grid Background="LightGray" VerticalAlignment="Top">
+        <Grid Background="LightGray" VerticalAlignment="Top" MouseDown="NavBar_MouseDown">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
@@ -22,9 +22,11 @@
                     <MenuItem Header="Fornecedores" Click="MenuItemFornecedores_Click"/>
                 </MenuItem>
                 <MenuItem Header="_Ordens de Produção" Click="MenuItemOrdensProducao_Click"/>
-                <MenuItem Header="_Relatórios" Click="MenuItemRelatorios_Click"/>
-                <MenuItem Header="_Configurações" Click="MenuItemConfiguracoes_Click"/>
-                <MenuItem Header="_Cadastro de Usuário" Click="MenuItemCadastroUsuario_Click"/>
+                <MenuItem Header="Cadastros Administrativos">
+                    <MenuItem Header="_Cadastro de Maquinário" Click="MenuItemCadastroMaquinario_Click"/>
+                    <MenuItem Header="_Cadastro de Funcionário" Click="MenuItemCadastroFuncionario_Click"/>
+                    <MenuItem Header="_Cadastro de Usuário" Click="MenuItemCadastroUsuario_Click"/>
+                </MenuItem>
             </Menu>
 
             <!-- Botões de controle de janela -->
@@ -36,7 +38,7 @@
         </Grid>
 
         <!-- Conteúdo principal -->
-        <Grid>
+        <Grid MouseDown="ContentGrid_MouseDown">
             <!-- Conteúdo da página vai aqui -->
             <TextBlock Text="Conteúdo da página principal" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
