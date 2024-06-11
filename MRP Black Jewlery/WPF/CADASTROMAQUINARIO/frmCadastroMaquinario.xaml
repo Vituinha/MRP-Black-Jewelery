@@ -1,0 +1,30 @@
+﻿<Window x:Class="MRP_Black_Jewlery.WPF.CADASTROMAQUINARIO.frmCadastroMaquinario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cadastro de Maquinário" Height="500" Width="300"
+        WindowStyle="None" ShowInTaskbar="False" MouseDown="Window_MouseDown">
+    <Grid>
+        <TextBlock Text="Cadastro de Maquinário" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Nome da Máquina:" Margin="0,0,0,5"/>
+            <TextBox x:Name="NomeMaquinaTextBox" Width="200" Height="30" Margin="0,0,0,20" KeyDown="TextBox_KeyDown" Tag="ModeloTextBox"/>
+
+            <TextBlock Text="Modelo:" Margin="0,0,0,5"/>
+            <TextBox x:Name="ModeloTextBox" Width="200" Height="30" Margin="0,0,0,20" KeyDown="TextBox_KeyDown" Tag="NumeroSerieTextBox"/>
+
+            <TextBlock Text="Número de Série:" Margin="0,0,0,5"/>
+            <TextBox x:Name="NumeroSerieTextBox" Width="200" Height="30" Margin="0,0,0,20" KeyDown="TextBox_KeyDown" Tag="DataAquisicaoDatePicker"/>
+
+            <TextBlock Text="Data de Aquisição:" Margin="0,0,0,5"/>
+            <DatePicker x:Name="DataAquisicaoDatePicker" Width="200" Height="30" Margin="0,0,0,20" KeyDown="DatePicker_KeyDown" Tag="ValorTextBox"/>
+
+            <TextBlock Text="Valor:" Margin="0,0,0,5"/>
+            <TextBox x:Name="ValorTextBox" Width="200" Height="30" Margin="0,0,0,20" KeyDown="TextBox_KeyDown" TextChanged="ValorTextBox_TextChanged" Tag="CadastrarButton"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Cadastrar" Width="100" Height="30" Click="CadastrarButton_Click"/>
+                <Button Content="Sair" Width="100" Height="30" Click="SairButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
