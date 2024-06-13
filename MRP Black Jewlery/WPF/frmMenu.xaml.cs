@@ -120,5 +120,11 @@ namespace MRP_Black_Jewlery
             frmCadastroDepartamento cadastroDepartamentoWindow = new frmCadastroDepartamento();
             cadastroDepartamentoWindow.Show();
         }
+
+        private void MenuItemRelatorio_Click(object sender, RoutedEventArgs e)
+        {
+            frmMostrarRelatorio relatorios = new frmMostrarRelatorio();
+            relatorios.Show();
+        }
     }
 }
