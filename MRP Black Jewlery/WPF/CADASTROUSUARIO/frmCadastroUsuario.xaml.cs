@@ -1,6 +1,9 @@
 ﻿using MRP_Black_Jewlery.WPF.CADASTROUSUARIO;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,6 +67,11 @@ namespace MRP_Black_Jewlery
             else
                 MessageBox.Show("Erro ao realizar cadastro!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
+        private void LoadUserData()
+        {
+            cadastrarBusiness selecionar = new cadastrarBusiness();
+            UserDataGrid.ItemsSource = selecionar.ListarUsuarios();
+        }
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -86,5 +94,17 @@ namespace MRP_Black_Jewlery
         {
             this.Close();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadUserData();
+        }
+    }
+
+    public class User
+    {
+        public string Nome { get; set; }
+        public string Email { get; set; }
+        public string Senha { get; set; }
     }
 }

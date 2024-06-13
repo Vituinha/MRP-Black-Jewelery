@@ -16,7 +16,7 @@ namespace MRP_Black_Jewlery.WPF.CADASTRODEPARTAMENTO
             var command = conn.CreateCommand();
 
             command.CommandType = System.Data.CommandType.Text;
-            command.CommandText = "SELECT * FROM DEPARTAMENTO WHERE nome = '" + nome + "'AND descricao = " + descricao + ";";
+            command.CommandText = "SELECT * FROM DEPARTAMENTO WHERE nome = '" + nome + "'AND descricao = '" + descricao + "';";
             var returnSelect = command.ExecuteReader();
             if (returnSelect.RecordsAffected > 0)
                 return 3;
@@ -32,6 +32,41 @@ namespace MRP_Black_Jewlery.WPF.CADASTRODEPARTAMENTO
                     return 1;
             }
             return 2;
+        }
+        public List<Department> ListarDepartamentos()
+        {
+            List<Department> departments = new List<Department>();
+
+            try
+            {
+                Connection connection = new Connection();
+                var conn = connection.Conectar();
+                var command = conn.CreateCommand();
+
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "SELECT nome, descricao FROM departamento";
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Department department = new Department
+                        {
+                            Nome = reader["nome"].ToString(),
+                            Descricao = reader["descricao"].ToString()
+                        };
+                        departments.Add(department);
+                    }
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                // Lidar com exceções adequadamente
+                Console.WriteLine(ex.Message);
+            }
+
+            return departments;
         }
     }
 }

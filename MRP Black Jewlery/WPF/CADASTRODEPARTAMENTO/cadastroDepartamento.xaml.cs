@@ -47,12 +47,26 @@ namespace MRP_Black_Jewlery.WPF.CADASTRODEPARTAMENTO
                 MessageBox.Show("Erro ao realizar cadastro!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             else
                 MessageBox.Show("Departamento já cadastrado no sistema!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            MessageBox.Show($"Departamento {nomeDepartamento} cadastrado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void SairButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+        private void LoadDepartmentData()
+        {
+            cadastrarBusiness departmentService = new cadastrarBusiness();
+            List<Department> departments = departmentService.ListarDepartamentos();
+            DepartmentDataGrid.ItemsSource = departments;
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadDepartmentData();
+        }
+    }
+    public class Department
+    {
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
     }
 }

@@ -33,5 +33,44 @@ namespace MRP_Black_Jewlery.WPF.CADASTROMAQUINARIO
             }
             return 2;
         }
+
+        public List<Machine> ListaMaquinas()
+        {
+            List<Machine> machines = new List<Machine>();
+
+            try
+            {
+                Connection connection = new Connection();
+                var conn = connection.Conectar();
+                var command = conn.CreateCommand();
+
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "SELECT nome, modelo, numeroSerie, dataAquisicao, valor FROM maquinario";
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Machine machine = new Machine
+                        {
+                            Nome = reader["nome"].ToString(),
+                            Modelo = reader["modelo"].ToString(),
+                            NumeroSerie = reader["numeroSerie"].ToString(),
+                            DataAquisicao = Convert.ToDateTime(reader["dataAquisicao"]),
+                            Valor = Convert.ToDecimal(reader["valor"])
+                        };
+                        machines.Add(machine);
+                    }
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                // Lidar com exceções adequadamente
+                Console.WriteLine(ex.Message);
+            }
+
+            return machines;
+        }
     }
 }
