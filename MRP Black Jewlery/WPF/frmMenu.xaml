@@ -22,6 +22,7 @@
                     <MenuItem Header="Fornecedores" Click="MenuItemFornecedores_Click"/>
                 </MenuItem>
                 <MenuItem Header="_Ordens de Produção" Click="MenuItemOrdensProducao_Click"/>
+                <MenuItem Header="_Relatórios" Click="MenuItemRelatorio_Click"/>
                 <MenuItem Header="Cadastros Administrativos">
                     <MenuItem Header="_Cadastro de Maquinário" Click="MenuItemCadastroMaquinario_Click"/>
                     <MenuItem Header="_Cadastro de Funcionário" Click="MenuItemCadastroFuncionario_Click"/>
