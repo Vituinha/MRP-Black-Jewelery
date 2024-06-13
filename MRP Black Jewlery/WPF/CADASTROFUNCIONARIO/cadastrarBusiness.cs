@@ -33,5 +33,43 @@ namespace MRP_Black_Jewlery.WPF.CADASTROFUNCIONARIO
             }
             return 2;
         }
+
+        public List<Funcionario> ListaFuncionarios()
+        {
+            List<Funcionario> employees = new List<Funcionario>();
+
+            try
+            {
+                Connection connection = new Connection();
+                var conn = connection.Conectar();
+                var command = conn.CreateCommand();
+
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "SELECT nome, idade, cargo, salario FROM funcionario";
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Funcionario employee = new Funcionario
+                        {
+                            Nome = reader["nome"].ToString(),
+                            Idade = Convert.ToInt32(reader["idade"]),
+                            Cargo = reader["cargo"].ToString(),
+                            Salario = Convert.ToDecimal(reader["salario"])
+                        };
+                        employees.Add(employee);
+                    }
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                // Lidar com exceções adequadamente
+                Console.WriteLine(ex.Message);
+            }
+
+            return employees;
+        }
     }
 }

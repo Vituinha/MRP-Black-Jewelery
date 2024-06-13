@@ -1,11 +1,12 @@
 ﻿<Window x:Class="MRP_Black_Jewlery.frmCadastroUsuario"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Cadastro de Usuário" Height="400" Width="300"
-        WindowStyle="None" ShowInTaskbar="False">
+        Title="Cadastro de Usuário" Height="603" Width="400"
+        WindowStyle="None" ShowInTaskbar="False"
+        Loaded="Window_Loaded">
     <Grid>
         <TextBlock Text="Cadastro de Usuário" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,50,0,0">
             <TextBlock Text="Nome:" Margin="0,0,0,5"/>
             <TextBox Name="nomeTextBox" Width="200" Height="30" Margin="0,0,0,20" KeyDown="TextBox_KeyDown"/>
 
@@ -15,10 +16,18 @@
             <TextBlock Text="Senha:" Margin="0,0,0,5"/>
             <PasswordBox Name="senhaPasswordBox" Width="200" Height="30" Margin="0,0,0,20" KeyDown="TextBox_KeyDown"/>
 
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Content="Cadastrar" Width="100" Height="30" Click="OnCadastrarClick"/>
                 <Button Content="Sair" Width="100" Height="30" Click="OnSairClick"/>
             </StackPanel>
         </StackPanel>
+
+        <DataGrid Name="UserDataGrid" AutoGenerateColumns="False" Height="200" Width="350" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,20,0,20">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Usuário" Binding="{Binding Nome}" Width="*"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
+                <DataGridTextColumn Header="Senha" Binding="{Binding Senha}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

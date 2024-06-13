@@ -1,4 +1,5 @@
-﻿using MRP_Black_Jewlery.WPF.CADASTROFUNCIONARIO;
+﻿using MRP_Black_Jewlery.WPF.CADASTRODEPARTAMENTO;
+using MRP_Black_Jewlery.WPF.CADASTROFUNCIONARIO;
 using MRP_Black_Jewlery.WPF.CADASTROMAQUINARIO;
 using System;
 using System.Collections.Generic;
@@ -112,6 +113,12 @@ namespace MRP_Black_Jewlery
         {
             frmCadastroFuncionario cadastroFuncionarioWindow = new frmCadastroFuncionario();
             cadastroFuncionarioWindow.Show();
+        }
+
+        private void MenuItemCadastroDepartamento_Click(object sender, RoutedEventArgs e)
+        {
+            frmCadastroDepartamento cadastroDepartamentoWindow = new frmCadastroDepartamento();
+            cadastroDepartamentoWindow.Show();
         }
     }
 }

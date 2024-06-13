@@ -117,5 +117,23 @@ namespace MRP_Black_Jewlery.WPF.CADASTROMAQUINARIO
                 }
             }
         }
+        private void LoadDadosMaquina()
+        {
+            cadastrarBusiness machineService = new cadastrarBusiness();
+            List<Machine> machines = machineService.ListaMaquinas();
+            MachineDataGrid.ItemsSource = machines;
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadDadosMaquina();
+        }
+    }
+    public class Machine
+    {
+        public string Nome { get; set; }
+        public string Modelo { get; set; }
+        public string NumeroSerie { get; set; }
+        public DateTime DataAquisicao { get; set; }
+        public decimal Valor { get; set; }
     }
 }

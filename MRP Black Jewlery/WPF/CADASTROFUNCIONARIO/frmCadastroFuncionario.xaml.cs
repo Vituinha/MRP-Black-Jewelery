@@ -111,5 +111,23 @@ namespace MRP_Black_Jewlery.WPF.CADASTROFUNCIONARIO
                 }
             }
         }
+        private void LoadDadoFuncionario()
+        {
+            cadastrarBusiness funcionarioService = new cadastrarBusiness();
+            List<Funcionario> machines = funcionarioService.ListaFuncionarios();
+            FuncionarioDataGrid.ItemsSource = machines;
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadDadoFuncionario();
+        }
+    }
+
+    public class Funcionario
+    {
+        public string Nome { get; set; }
+        public int Idade { get; set; }
+        public string Cargo { get; set; }
+        public decimal Salario { get; set; }
     }
 }

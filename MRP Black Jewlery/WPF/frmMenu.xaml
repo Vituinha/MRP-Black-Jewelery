@@ -26,6 +26,7 @@
                     <MenuItem Header="_Cadastro de Maquinário" Click="MenuItemCadastroMaquinario_Click"/>
                     <MenuItem Header="_Cadastro de Funcionário" Click="MenuItemCadastroFuncionario_Click"/>
                     <MenuItem Header="_Cadastro de Usuário" Click="MenuItemCadastroUsuario_Click"/>
+                    <MenuItem Header="_Cadastro de Departamento" Click="MenuItemCadastroDepartamento_Click"/>
                 </MenuItem>
             </Menu>
 
