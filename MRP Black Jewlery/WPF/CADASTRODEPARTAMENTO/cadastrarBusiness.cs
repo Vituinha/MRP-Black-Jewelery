@@ -9,7 +9,7 @@ namespace MRP_Black_Jewlery.WPF.CADASTRODEPARTAMENTO
 {
     internal class cadastrarBusiness
     {
-        public decimal InserirDepartamento(string nome, string descricao)
+        public decimal InserirDepartamento(string nome, string descricao, int? id)
         {
             Connection Connection = new Connection();
             var conn = Connection.Conectar();
@@ -26,7 +26,10 @@ namespace MRP_Black_Jewlery.WPF.CADASTRODEPARTAMENTO
                 var connInsert = Connection.Conectar();
                 var commandInsert = connInsert.CreateCommand();
                 commandInsert.CommandType = System.Data.CommandType.Text;
-                commandInsert.CommandText = "INSERT INTO DEPARTAMENTO (nome, descricao) VALUES ('" + nome + "', '" + descricao + "')";
+                if(id == null || id == 0)
+                    commandInsert.CommandText = "INSERT INTO DEPARTAMENTO (nome, descricao) VALUES ('" + nome + "', '" + descricao + "')";
+                else
+                    commandInsert.CommandText = $"UPDATE DEPARTAMENTO SET nome = '{nome}', descricao = '{descricao}' WHERE id = {id}";
                 var returnInsert = commandInsert.ExecuteNonQuery();
                 if (returnInsert > 0)
                     return 1;
@@ -44,7 +47,7 @@ namespace MRP_Black_Jewlery.WPF.CADASTRODEPARTAMENTO
                 var command = conn.CreateCommand();
 
                 command.CommandType = System.Data.CommandType.Text;
-                command.CommandText = "SELECT nome, descricao FROM departamento";
+                command.CommandText = "SELECT id, nome, descricao FROM departamento";
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -52,7 +55,8 @@ namespace MRP_Black_Jewlery.WPF.CADASTRODEPARTAMENTO
                         Department department = new Department
                         {
                             Nome = reader["nome"].ToString(),
-                            Descricao = reader["descricao"].ToString()
+                            Descricao = reader["descricao"].ToString(),
+                            Id = Convert.ToInt32(reader["id"])
                         };
                         departments.Add(department);
                     }
