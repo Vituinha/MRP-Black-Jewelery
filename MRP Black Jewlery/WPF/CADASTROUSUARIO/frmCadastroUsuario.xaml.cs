@@ -1,4 +1,5 @@
-﻿using MRP_Black_Jewlery.WPF.CADASTROUSUARIO;
+﻿using MRP_Black_Jewlery.WPF.CADASTROFUNCIONARIO;
+using MRP_Black_Jewlery.WPF.CADASTROUSUARIO;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -53,13 +54,14 @@ namespace MRP_Black_Jewlery
             string nome = nomeTextBox.Text;
             string email = emailTextBox.Text;
             string senha = senhaPasswordBox.Password;
+            string funcionario = FuncionarioComboBox.Text;
 
             if (!ValidarInformacoes(email, senha, nome))
                 return;
 
             // Aqui você pode adicionar a lógica para salvar os dados do usuário
-            cadastrarBusiness cadastro = new cadastrarBusiness();
-            if (cadastro.InserirUsuario(nome, senha, email))
+            WPF.CADASTROUSUARIO.cadastrarBusiness cadastro = new WPF.CADASTROUSUARIO.cadastrarBusiness();
+            if (cadastro.InserirUsuario(nome, senha, email, funcionario))
             {
                 MessageBox.Show("Cadastro realizado com sucesso!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.Close();
@@ -69,7 +71,7 @@ namespace MRP_Black_Jewlery
         }
         private void LoadUserData()
         {
-            cadastrarBusiness selecionar = new cadastrarBusiness();
+            WPF.CADASTROUSUARIO.cadastrarBusiness selecionar = new WPF.CADASTROUSUARIO.cadastrarBusiness();
             UserDataGrid.ItemsSource = selecionar.ListarUsuarios();
         }
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
@@ -98,6 +100,24 @@ namespace MRP_Black_Jewlery
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LoadUserData();
+            LoadFuncionarioData();
+        }
+        private void LoadFuncionarioData()
+        {
+            WPF.CADASTROUSUARIO.cadastrarBusiness funcionarioService = new WPF.CADASTROUSUARIO.cadastrarBusiness();
+            List<Funcionario> funcionarios = funcionarioService.listarFuncionario();
+            FuncionarioComboBox.ItemsSource = funcionarios;
+        }
+    }
+
+    public class Funcionario
+    {
+        public int Id { get; set; }
+        public string Nome { get; set; }
+
+        public override string ToString()
+        {
+            return Nome;
         }
     }
 
@@ -106,5 +126,6 @@ namespace MRP_Black_Jewlery
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
+        public string Funcionario { get; set; }
     }
 }

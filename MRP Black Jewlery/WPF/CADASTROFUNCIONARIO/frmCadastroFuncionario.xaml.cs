@@ -19,6 +19,7 @@ namespace MRP_Black_Jewlery.WPF.CADASTROFUNCIONARIO
             string idadeText = IdadeTextBox.Text;
             string cargo = CargoTextBox.Text;
             string salarioText = SalarioTextBox.Text;
+            string departamento = DepartamentoComboBox.Text;
 
             if (string.IsNullOrWhiteSpace(nome) || string.IsNullOrWhiteSpace(idadeText) ||
                 string.IsNullOrWhiteSpace(cargo) || string.IsNullOrWhiteSpace(salarioText))
@@ -44,7 +45,7 @@ namespace MRP_Black_Jewlery.WPF.CADASTROFUNCIONARIO
             // Funcionario novoFuncionario = new Funcionario(nome, idade, cargo, salario);
             // FuncionarioRepository.Adicionar(novoFuncionario);
             cadastrarBusiness cadastro = new cadastrarBusiness();
-            var resultadoInsercao = cadastro.InserirFuncionario(nome, idade, cargo, salario);
+            var resultadoInsercao = cadastro.InserirFuncionario(nome, idade, cargo, salario, departamento);
             if (resultadoInsercao == 1)
             {
                 MessageBox.Show("Cadastro realizado com sucesso!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -54,7 +55,6 @@ namespace MRP_Black_Jewlery.WPF.CADASTROFUNCIONARIO
                 MessageBox.Show("Erro ao realizar cadastro!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             else
                 MessageBox.Show("Funcionário já cadastrado no sistema!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            MessageBox.Show($"Funcionário {nome} cadastrado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
 
             // Limpar os campos após cadastro
             NomeTextBox.Clear();
@@ -120,6 +120,14 @@ namespace MRP_Black_Jewlery.WPF.CADASTROFUNCIONARIO
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LoadDadoFuncionario();
+            LoadDepartmentData();
+        }
+
+        private void LoadDepartmentData()
+        {
+            cadastrarBusiness departmentService = new cadastrarBusiness();
+            List<Department> departments = departmentService.listarDepartamento();
+            DepartamentoComboBox.ItemsSource = departments;
         }
     }
 
@@ -129,5 +137,17 @@ namespace MRP_Black_Jewlery.WPF.CADASTROFUNCIONARIO
         public int Idade { get; set; }
         public string Cargo { get; set; }
         public decimal Salario { get; set; }
+        public string Departamento { get; set; }
+    }
+
+    public class Department
+    {
+        public int Id { get; set; }
+        public string Nome { get; set; }
+
+        public override string ToString()
+        {
+            return Nome;
+        }
     }
 }
