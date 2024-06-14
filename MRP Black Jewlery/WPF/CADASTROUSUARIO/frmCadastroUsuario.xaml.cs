@@ -108,6 +108,11 @@ namespace MRP_Black_Jewlery
             List<Funcionario> funcionarios = funcionarioService.listarFuncionario();
             FuncionarioComboBox.ItemsSource = funcionarios;
         }
+
+        private void UserDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
     public class Funcionario

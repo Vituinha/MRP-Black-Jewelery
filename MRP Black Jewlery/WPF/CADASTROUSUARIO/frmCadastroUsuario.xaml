@@ -25,7 +25,8 @@
             </StackPanel>
         </StackPanel>
 
-        <DataGrid Name="UserDataGrid" AutoGenerateColumns="False" Height="200" Width="350" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,20,0,20">
+        <DataGrid Name="UserDataGrid" AutoGenerateColumns="False" Height="200" Width="350" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,20,0,20"
+                  SelectionChanged="UserDataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Usuário" Binding="{Binding Nome}" Width="*"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
