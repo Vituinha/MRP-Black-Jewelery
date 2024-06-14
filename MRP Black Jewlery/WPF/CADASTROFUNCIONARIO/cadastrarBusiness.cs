@@ -9,7 +9,7 @@ namespace MRP_Black_Jewlery.WPF.CADASTROFUNCIONARIO
 {
     internal class cadastrarBusiness
     {
-        public decimal InserirFuncionario(string funcionario, decimal idade, string cargo, decimal salario)
+        public decimal InserirFuncionario(string funcionario, decimal idade, string cargo, decimal salario, string departamento)
         {
             Connection Connection = new Connection();
             var conn = Connection.Conectar();
@@ -26,7 +26,7 @@ namespace MRP_Black_Jewlery.WPF.CADASTROFUNCIONARIO
                 var connInsert = Connection.Conectar();
                 var commandInsert = connInsert.CreateCommand();
                 commandInsert.CommandType = System.Data.CommandType.Text;
-                commandInsert.CommandText = "INSERT INTO FUNCIONARIO (nome, idade, cargo, salario) VALUES ('" + funcionario + "', " + idade + ", '" + cargo + "', " + salario + ")";
+                commandInsert.CommandText = "INSERT INTO FUNCIONARIO (nome, idade, cargo, salario, departamento) VALUES ('" + funcionario + "', " + idade + ", '" + cargo + "', " + salario + ", '" + departamento + "')";
                 var returnInsert = commandInsert.ExecuteNonQuery();
                 if (returnInsert > 0)
                     return 1;
@@ -45,7 +45,7 @@ namespace MRP_Black_Jewlery.WPF.CADASTROFUNCIONARIO
                 var command = conn.CreateCommand();
 
                 command.CommandType = System.Data.CommandType.Text;
-                command.CommandText = "SELECT nome, idade, cargo, salario FROM funcionario";
+                command.CommandText = "SELECT nome, idade, cargo, salario, departamento FROM funcionario";
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -55,6 +55,7 @@ namespace MRP_Black_Jewlery.WPF.CADASTROFUNCIONARIO
                             Nome = reader["nome"].ToString(),
                             Idade = Convert.ToInt32(reader["idade"]),
                             Cargo = reader["cargo"].ToString(),
+                            Departamento = reader["departamento"].ToString(),
                             Salario = Convert.ToDecimal(reader["salario"])
                         };
                         employees.Add(employee);
@@ -70,6 +71,42 @@ namespace MRP_Black_Jewlery.WPF.CADASTROFUNCIONARIO
             }
 
             return employees;
+        }
+
+        public List<Department> listarDepartamento()
+        {
+            List<Department> departments = new List<Department>();
+
+            try
+            {
+                Connection connection = new Connection();
+                var conn = connection.Conectar();
+                var command = conn.CreateCommand();
+
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "SELECT id, nome FROM departamento";
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Department department = new Department
+                        {
+                            Id = Convert.ToInt32(reader["id"]),
+                            Nome = reader["nome"].ToString()
+                        };
+                        departments.Add(department);
+                    }
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                // Lidar com exceções adequadamente
+                Console.WriteLine(ex.Message);
+            }
+
+            return departments;
         }
     }
 }

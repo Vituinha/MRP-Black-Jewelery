@@ -16,6 +16,9 @@
             <TextBlock Text="Senha:" Margin="0,0,0,5"/>
             <PasswordBox Name="senhaPasswordBox" Width="200" Height="30" Margin="0,0,0,20" KeyDown="TextBox_KeyDown"/>
 
+            <TextBlock Text="Funcionário:" Margin="0,0,0,5"/>
+            <ComboBox Name="FuncionarioComboBox" Width="200" Height="30" Margin="0,0,0,20"/>
+
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Content="Cadastrar" Width="100" Height="30" Click="OnCadastrarClick"/>
                 <Button Content="Sair" Width="100" Height="30" Click="OnSairClick"/>
@@ -27,6 +30,7 @@
                 <DataGridTextColumn Header="Usuário" Binding="{Binding Nome}" Width="*"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
                 <DataGridTextColumn Header="Senha" Binding="{Binding Senha}" Width="*"/>
+                <DataGridTextColumn Header="Funcionario" Binding="{Binding Funcionario}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
